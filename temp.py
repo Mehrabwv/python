@@ -7,4 +7,4 @@ img = PhotoImage(file='gif-file.gif')
 canvas.create_image(20,20, anchor=NW, image=img)      
 mainloop()
 
-# awowwowowwlowowowowiowiwiwiwiui
+# C:\Users\mehra\python>python temp.py
