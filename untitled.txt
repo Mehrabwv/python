@@ -2,6 +2,7 @@ from tkinter import *
 import random
 import time
 
+
 class Ball:
     def __init__(self, canvas, paddle, score, color):
         self.canvas = canvas
@@ -51,13 +52,14 @@ class Ball:
 
 class Score:
     def __init__(self, canvas, color):
-        self.score = 0
+        self.score = 0                
         self.canvas = canvas
         self.id = canvas.create_text(450, 10, text=self.score, \
                 fill=color)             
     
     
     def hit(self):
+        global endscore
         self.score += 1
         self.canvas.itemconfig(self.id, text=self.score)
         endscore = self.score
@@ -66,6 +68,11 @@ class Score:
 
 
 
+
+
+class Reset:
+    def __init__(self,canvas,color):
+        
 class Paddle:
     def __init__(self, canvas, color):
         self.canvas = canvas
@@ -135,10 +142,19 @@ while 1:
         canvas.delete("all")
         canvas.create_text(250, 200, text='GAME OVER!',
 font=('Helvetica', 20))
-        canvas.create_text(250, 300, text='Score = %s' % endscore,
-fill='green',
-font=('Helvetica', 20))
+        print(endscore)
+        canvas.create_text(250, 300, text='Score = %s' % endscore)
+        btn = Button(tk, text="Play Again", command=reset)
+        btn.pack()
     tk.update_idletasks()
     tk.update()
     time.sleep(0.01)
     
+
+
+
+
+
+# canvas.create_text(250, 300, text='Score = %s' % self.score ,
+#fill='green',
+#font=('Helvetica', 20))
